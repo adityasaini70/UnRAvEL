@@ -50,7 +50,7 @@ We're yet to add the documentation of the final API, till then please refer the 
 
 - [Support Vector Classifier on Breast Cancer Classification dataset](https://github.com/adityasaini70/UnRAvEL/blob/main/notebooks/Breast%20Cancer.ipynb)
 
-If you face any problem in running this code, you can contact us at {aditya18125, ranjitha}@iiitd.ac.in.
+If you face any problem in running any module of this codebase, please feel free to contact us at {aditya18125, ranjitha}@iiitd.ac.in.
 
 ## License
 

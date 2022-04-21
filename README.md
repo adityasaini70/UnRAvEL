@@ -47,7 +47,7 @@ The code used in our experiments can be found in the [`evaluation`](https://gith
 
 Sample Efficiency      |  Stability
 :-------------------------:|:-------------------------:
-<img src="https://user-images.githubusercontent.com/49980787/164488777-474e2a35-d438-45f8-8eb3-0fadd8c44895.png" width="500" height="500"> | <img src="https://user-images.githubusercontent.com/49980787/164488603-4461b509-c605-48b7-98ac-3ab13830d5e5.png" width="500" height="200">
+<img src="https://user-images.githubusercontent.com/49980787/164488777-474e2a35-d438-45f8-8eb3-0fadd8c44895.png" width="500" height="300"> | <img src="https://user-images.githubusercontent.com/49980787/164488603-4461b509-c605-48b7-98ac-3ab13830d5e5.png" width="500" height="300">
 
 ## License
 

@@ -1,8 +1,8 @@
-# BO-LIME
+# UnRAvEL
 
-This repository is the official implementation of [LOCALLY INTERPRETABLE MODEL AGNOSTIC EXPLANATIONS USING GAUSSIAN PROCESSES](https://arxiv.org/abs/2108.06907).
+This repository is the official implementation of Select Wisely and Explain: Active Learning and Probabilistic Local Post-hoc Explainability.
 
-![Visualizing Bayesian optimization sampling](https://user-images.githubusercontent.com/49980787/124347202-f694f500-dc00-11eb-8bf5-618db6343d57.png)
+![Workflow](https://user-images.githubusercontent.com/49980787/164484714-fdffb1ce-ea73-4d44-8eb1-3ef8a05db27e.png)
 
 ## Installation
 
@@ -15,47 +15,40 @@ git clone https://github.com/adityasaini70/BO-LIME.git
 After that, the dependencies of the codebase(Python v3.8.5) can be installed using the following command:
 
 ```
-cd BO-LIME/
+cd UnRAvEL/
 pip install -r requirements.txt
 ```
 
 ## Source code
 
-The source code of the API can be found in the [`src`](https://github.com/adityasaini70/BO-LIME/tree/main/src) folder. The description of files are as follows:
+The source code of the API can be found in the [`unravel`](https://github.com/adityasaini70/UnRAvEL/tree/main/unravel) folder. The description of files are as follows:
 
-- [`bolime.py`](https://github.com/adityasaini70/BO-LIME/blob/main/src/bolime.py): Impelementation of the BO-LIME algorithm
-- [`evaluation_metrics.py`](https://github.com/adityasaini70/BO-LIME/blob/main/src/evaluation_metrics.py): Implementations of MSD and MIS evaluation metrics
-- [`plot_util.py:`](https://github.com/adityasaini70/BO-LIME/blob/main/src/plot_util.py): Impelementation of plotting utilities
+- [`tabular.py`](https://github.com/adityasaini70/UnRAvEL/blob/main/unravel/tabular.py): Implementation of the UnRAvEL algorithm for tabular datasets
+- [`image.py`](https://github.com/adityasaini70/UnRAvEL/blob/main/unravel/image.py): Implementation of the UnRAvEL algorithm for image datasets
+- [`acquisition_util.py`](https://github.com/adityasaini70/UnRAvEL/blob/main/unravel/acquisition_util.py): Implementation of all the used acquisition functions: FUR, UCB and UR
+- [`kernel_util.py`](https://github.com/adityasaini70/UnRAvEL/blob/main/unravel/kernel_util.py): Wrapper module for the used GP kernels
+- [`plot_util.py`](https://github.com/adityasaini70/UnRAvEL/blob/main/unravel/plot_util.py): Wrapper module for plotting utilities
 
 ## Tutorials and usage
 
 We're yet to add the documentation of the final API, till then please refer the following tutorial for learning about the implemented calls and methods
 
-- [Extra Trees Regressor on Boston House Pricing dataset](https://github.com/adityasaini70/BO-LIME/blob/main/Notebooks/Introduction.ipynb)
+- [Support Vector Classifier on Breast Cancer Classification dataset](https://github.com/adityasaini70/UnRAvEL/blob/main/notebooks/Breast%20Cancer.ipynb)
 
 ## Evaluation
 
-For evaluating our model against LIME, we used two metrics:
+The code used in our experiments can be found in the [`evaluation`](https://github.com/adityasaini70/UnRAvEL/tree/main/evaluation) folder. The description of files are as follows:
 
-1. **Mean standard deviation(MSD):** For measuring stability of the generated explanations(The lower, the better)
-2. **Mean importance score(MIS):** For measuring the quality of the generated explanations
-
-Please refer the following notebook for referring the code used for evaluation:
-
-- [Extra Trees Regressor on Boston House Pricing dataset; MSD & MIS](https://github.com/adityasaini70/BO-LIME/blob/main/Notebooks/Testing_evaluation_metrics.ipynb)
+- [`explanation_evaluator.py`](https://github.com/adityasaini70/UnRAvEL/blob/main/evaluation/explanation_evaluator.py): Implementation of all the stability and fidelity metrics used for evaluating our method against LIME and BayLIME
+- [`blackbox_util.py`](https://github.com/adityasaini70/UnRAvEL/blob/main/evaluation/blackbox_util.py): Wrapper module for all the used datasets and corresponding prediction models
+- [`settings.py`](https://github.com/adityasaini70/UnRAvEL/blob/main/evaluation/settings.py): Implementation of all the evaluation settings
 
 ## Results
 
-Our method achieves considerably better [results](https://github.com/adityasaini70/BO-LIME/tree/main/Results) than LIME for both stability and quality metric.
-
-- Quality metric: [Mean importance score](https://github.com/adityasaini70/BO-LIME/blob/main/Results/Importance%20Score.ipynb)
-
-![Importance](https://github.com/adityasaini70/BO-LIME/blob/main/Results/Importance.png)
-
-- Stability metric: [Mean standard deviation](https://github.com/adityasaini70/BO-LIME/blob/main/Results/Inconsistency.ipynb)
-
-![Inconsistency](https://github.com/adityasaini70/BO-LIME/blob/main/Results/Inconsistency.png)
+Sample Efficiency      |  Stability
+:-------------------------:|:-------------------------:
+<img src="https://user-images.githubusercontent.com/49980787/164488777-474e2a35-d438-45f8-8eb3-0fadd8c44895.png" width="500" height="500"> | <img src="https://user-images.githubusercontent.com/49980787/164488603-4461b509-c605-48b7-98ac-3ab13830d5e5.png" width="500" height="200">
 
 ## License
 
-[MIT License](https://github.com/adityasaini70/BO-LIME/blob/main/LICENSE)
+The API is distributed under the [MIT License](https://github.com/adityasaini70/UnRAvEL/blob/main/LICENSE)

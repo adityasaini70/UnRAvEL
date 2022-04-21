@@ -37,7 +37,7 @@ We're yet to add the documentation of the final API, till then please refer the 
 
 ## Evaluation
 
-The code used in our experiments can be found in the [`evaluation`](https://github.com/adityasaini70/UnRAvEL/tree/main/evaluation) folder. The description of files are as follows:
+Apart from the main [`evaluation script`](https://github.com/adityasaini70/UnRAvEL/blob/main/evaluation_script.py), the code used in our experiments can be found in the [`evaluation`](https://github.com/adityasaini70/UnRAvEL/tree/main/evaluation) folder. The description of files are as follows:
 
 - [`explanation_evaluator.py`](https://github.com/adityasaini70/UnRAvEL/blob/main/evaluation/explanation_evaluator.py): Implementation of all the stability and fidelity metrics used for evaluating our method against LIME and BayLIME
 - [`blackbox_util.py`](https://github.com/adityasaini70/UnRAvEL/blob/main/evaluation/blackbox_util.py): Wrapper module for all the used datasets and corresponding prediction models

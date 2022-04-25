@@ -1,6 +1,7 @@
 # UnRAvEL
+[![arXiv](https://img.shields.io/badge/arXiv-2108.06907-b31b1b.svg)](https://arxiv.org/abs/2108.06907)
 
-This repository is the official implementation of Select Wisely and Explain: Active Learning and Probabilistic Local Post-hoc Explainability.
+This repository is the official implementation of ![Select Wisely and Explain: Active Learning and Probabilistic Local Post-hoc Explainability](https://arxiv.org/abs/2108.06907#).
 
 ![Workflow](https://user-images.githubusercontent.com/49980787/164484714-fdffb1ce-ea73-4d44-8eb1-3ef8a05db27e.png)
 

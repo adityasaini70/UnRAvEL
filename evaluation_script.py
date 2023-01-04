@@ -11,8 +11,8 @@ from evaluation.explanation_evaluator import UnRAVELEvaluator, LimeEvaluator
 if __name__ == "__main__":
     # Setting seed for reproducibility
     np.random.seed(50)
-
     # Loading the dataset utilities and the black-box model(f_p)
+    print("Loading Dataset")
     dataset_utilities = eval(f"BlackBoxSimulator().load_{args.dataset}_utilities()")
     [
         X_train,
@@ -25,7 +25,6 @@ if __name__ == "__main__":
         categorical_features,
         sample_idx,
     ] = dataset_utilities.values()
-
     # Sample to be explained - Randomly selected
     # X_init = np.array([X_test[sample_idx]])
 
@@ -59,10 +58,10 @@ if __name__ == "__main__":
     #     num_samples_list.append(5000)
     num_samples = 100
 
+    print("Basic Definitions done.")
     results = {}
     print(sample_idx)
     for idx in range(sample_idx.shape[0]):
-
         # Initializing starting idx
         X_init = np.array([X_test[idx]])
         print(f"Performing experiment for idx = {idx}")
@@ -75,11 +74,11 @@ if __name__ == "__main__":
                 categorical_features=categorical_features,
                 mode=mode,
             )
-
+            print("Evaluation Model Selected")
             ModelEvaluator = UnRAVELEvaluator(
                 kernel_type=args.kernel_type, kernel_shape=X_init.shape[1]
             )
-
+            print("Model Evaluator Defined")
             evaluations = ModelEvaluator.evaluate_model(
                 unravel_explainer=f_e,
                 X_init=X_init,
@@ -88,6 +87,7 @@ if __name__ == "__main__":
                 alpha=args.acquisition_function,
                 jitter=args.acquisition_jitter,
             )
+            print("Evaluations done!")
         else:
             f_e = LimeTabularExplainer(
                 X_train,
@@ -130,8 +130,9 @@ if __name__ == "__main__":
             kl_jaccard.append(evaluations["jaccard"])
             print(">>> KL KW =", kl_kw)
             print(">>> KL Jaccard =", kl_jaccard)
+            # break
 
-    # Collecting the obtained metric values
+    # Collecti  ng the obtained metric values
     print("Average Jaccard = ", np.mean(jaccard))
     results = {
         "msd": msd,

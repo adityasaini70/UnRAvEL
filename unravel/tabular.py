@@ -4,7 +4,7 @@ import GPyOpt
 import numpy as np
 from unravel.plot_util import plot_scores
 from unravel.kernel_util import Kernel
-from unravel.acquisition_util import FUR, UR, UCB
+from unravel.acquisition_util import FUR, UR, UCB, IF_FUR
 
 
 class UnRAVELTabularExplainer:
@@ -127,13 +127,22 @@ class UnRAVELTabularExplainer:
         bounds = self.generate_domain(X_init[0], interval=interval)
 
         # Initializing explainer model f_e
-        if alpha == "FUR" or alpha == "UR" or alpha == "LCB_custom":
+        if alpha == "FUR" or alpha == "UR" or alpha == "LCB_custom" or alpha == 'IF_FUR':
             objective = GPyOpt.core.task.SingleObjective(lambda x: self.f_p(x))
             space = GPyOpt.Design_space(space=bounds)
             model = GPyOpt.models.GPModel(kernel=kernel.kernel, verbose=False)
             aquisition_optimizer = GPyOpt.optimization.AcquisitionOptimizer(space)
             if alpha == "FUR":
                 acquisition = FUR(
+                    model,
+                    space,
+                    optimizer=aquisition_optimizer,
+                    X_init=X_init,
+                    std=self.std,
+                )
+
+            elif alpha == "IF_FUR":
+                acquisition = IF_FUR(
                     model,
                     space,
                     optimizer=aquisition_optimizer,
@@ -170,8 +179,7 @@ class UnRAVELTabularExplainer:
             )
 
         # Running the Bayesian Optimization Routine
-        f_optim.run_optimization(max_iter=max_iter, verbosity=False, eps=-np.inf)
-
+        f_optim.run_optimization(max_iter = max_iter, max_time = 0.0001, verbosity=True)
         self.surrogate_data = f_optim.get_evaluations()
         self.gp_model = f_optim.model
 

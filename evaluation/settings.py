@@ -10,13 +10,6 @@ parser.add_argument(
 )
 
 parser.add_argument(
-    "--evaluation_model",
-    type=str,
-    default="unravel",
-    help='Model to be evaluated. Arguments can include: "unravel", or "lime"',
-)
-
-parser.add_argument(
     "--acquisition_jitter",
     type=float,
     default=0.01,
@@ -52,4 +45,5 @@ parser.add_argument(
 )
 
 args = parser.parse_args()
+
 

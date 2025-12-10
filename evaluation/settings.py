@@ -10,13 +10,6 @@ parser.add_argument(
 )
 
 parser.add_argument(
-    "--acquisition_jitter",
-    type=float,
-    default=0.01,
-    help="Acquisition jitter for controlling the exploration tradeoff during the BO procedure",
-)
-
-parser.add_argument(
     "--acquisition_function",
     type=str,
     default="FUR",
@@ -45,5 +38,4 @@ parser.add_argument(
 )
 
 args = parser.parse_args()
-
 

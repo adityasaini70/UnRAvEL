@@ -2,7 +2,7 @@ certifi==2021.5.30
 cycler==0.10.0
 Cython==0.29.24
 cytoolz==0.11.0
-decorator==5.1.0
+decorator==5.1.1
 GPy==1.10.0
 GPyOpt==1.2.6
 imageio==2.9.0
@@ -28,3 +28,4 @@ tifffile==2021.8.30
 toolz==0.11.1
 tqdm==4.50.2
 wincertstore==0.2
+
